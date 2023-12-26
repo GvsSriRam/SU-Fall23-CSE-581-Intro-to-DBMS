@@ -1,0 +1,4 @@
+1. Created EnrollmentStatus table to be used as reference in EnrollmentStatus table.
+2. Modified the Benefits table to have one PK, 3 FKs - InsuranceType, BenefitCoverage, EmployeeID to let the Employee have multiple insurances, benefits.
+3. Removed IsFaculty column in JobInformation as there is 'Faculty' in JobType.
+4. Merged StartHour,StartTime columns in CourseDailySchedule Table into StartTime and set it as TIME datatype. Same with EndHour, EndTime columns.

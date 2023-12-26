@@ -1,0 +1,98 @@
+USE CSE581projects
+
+
+----	SP-1	----
+
+SELECT * FROM AreaOfStudy
+SELECT * FROM CourseSchedule
+SELECT * FROM CourseEnrollment
+SELECT * FROM MajorMinor
+
+EXEC CountStudentsByStreamInaCourse @CRN=1
+
+EXEC CountStudentsByStreamInaCourse @CRN=10
+
+
+
+----	SP-2	----
+
+SELECT * FROM Employees
+SELECT * FROM EmployeeAndJob
+SELECT * FROM JobInformation
+
+EXEC UpdateEmployeeSalary @EmployeeId=1, @NewSalary=90000
+EXEC UpdateEmployeeSalary @EmployeeId=1, @NewSalary=105000
+EXEC UpdateEmployeeSalary @EmployeeId=5, @NewSalary=105000
+
+SELECT * FROM Employees
+
+
+----	SP-3	----
+
+SELECT * FROM CourseEnrollment
+SELECT * FROM CourseInstructor
+
+EXEC DeleteCourseEnrollmentWithInstructor
+    @StudentID = 2,
+    @CRN = 4,
+    @InstructorEmployeeID = 2;
+
+EXEC DeleteCourseEnrollmentWithInstructor
+    @StudentID = 2,
+    @CRN = 2,
+    @InstructorEmployeeID = 2;
+
+
+----	SP-4	----
+SELECT * FROM CourseSchedule
+SELECT * FROM CourseDailySchedule
+SELECT * FROM CourseEnrollment
+SELECT * FROM EnrollmentStatus
+
+
+EXEC CheckScheduleOverlap @StudentID=1, @CRN=1
+EXEC CheckScheduleOverlap @StudentID=1, @CRN=3
+EXEC CheckScheduleOverlap @StudentID=1, @CRN=5
+
+
+
+----	VIEW	----
+
+SELECT * FROM BenefitsView
+
+
+
+
+----	Function ----
+SELECT * FROM CourseEnrollment
+SELECT * FROM CourseSchedule
+
+
+
+DECLARE @StudentID INT = 1;
+DECLARE @Eligibility NVARCHAR(50);
+
+SET @Eligibility = vgiduthu.CheckAssistantshipEligibility(@StudentID);
+PRINT @Eligibility;
+
+
+DECLARE @StudentID INT = 2;
+DECLARE @Eligibility NVARCHAR(50);
+
+SET @Eligibility = vgiduthu.CheckAssistantshipEligibility(@StudentID);
+PRINT @Eligibility;
+
+
+DECLARE @StudentID INT = 3;
+DECLARE @Eligibility NVARCHAR(50);
+
+SET @Eligibility = vgiduthu.CheckAssistantshipEligibility(@StudentID);
+PRINT @Eligibility;
+
+
+DECLARE @StudentID INT = 4;
+DECLARE @Eligibility NVARCHAR(50);
+
+SET @Eligibility = vgiduthu.CheckAssistantshipEligibility(@StudentID);
+PRINT @Eligibility;
+
